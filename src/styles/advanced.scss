@@ -1,0 +1,146 @@
+.login-advanced-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section#left {
+        width: 35%;
+        background-color: #000000;
+
+        .content {
+            position: absolute;
+            bottom: 20px;
+
+            h1,
+            p {
+                color: #fff;
+                text-align: center;
+            }
+
+            h1 {
+                font-weight: bold;
+                font-size: 20px;
+                text-transform: uppercase;
+            }
+
+            p {
+                margin-top: 10px;
+                color: #ffffffba;
+                a {
+                    color: #ffffffba;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &:before {
+            animation: fade-slide-down 2s cubic-bezier(0, 0.5, 0, 1) forwards;
+            background: url("https://images.unsplash.com/photo-1514254220549-515803732172?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            content: "";
+            width: 35%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    section#right {
+        width: 65%;
+        background-image: -webkit-linear-gradient(
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.3)
+            ),
+            url("https://skillgrade.devtools.tech/assets/images/bg.png");
+        background-image: linear-gradient(
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.3)
+            ),
+            url("https://skillgrade.devtools.tech/assets/images/bg.png");
+        background-size: 20%;
+        opacity: 0;
+        animation: fade-in ease-in-out 2s forwards;
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            border: 1px solid #dfdede;
+            padding: 20px;
+            background: #ffffffba;
+            opacity: 0;
+            animation: fade-pop-in ease-in-out 1s 1s forwards;
+
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 0;
+                outline: 0;
+
+                &[type="email"],
+                &[type="password"] {
+                    border-bottom: 1px solid #000;
+                }
+
+                &[type="submit"] {
+                    color: #fff;
+                    font-weight: bold;
+                    background-color: #21ba45;
+                    border-radius: 20px;
+                    margin: 10px 0px;
+                }
+            }
+
+            p {
+                clear: both;
+                text-align: center;
+                color: #979797;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-4rem);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fade-pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
