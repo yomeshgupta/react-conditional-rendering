@@ -25,12 +25,15 @@ function App() {
     if (!showLogin) return <Home onClick={toggleLogin} />;
 
     function renderPage() {
-        switch (effectiveConnectionType) {
-            case "4g":
-                return <LoginAdvanced />;
-            default:
-                return <LoginBasic />;
-        }
+        const { search = "" } = window.location;
+        const queryParams = search.replace("?", "").split("&");
+        const showAdvanced =
+            queryParams.some(query => query.match(/mode=advance/, "i")) ||
+            effectiveConnectionType === "4g";
+
+        if (showAdvanced) return <LoginAdvanced />;
+
+        return <LoginBasic />;
     }
 
     return <Suspense fallback={<div>Loading...</div>}>{renderPage()}</Suspense>;
